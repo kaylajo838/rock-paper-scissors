@@ -7,7 +7,8 @@ function computerPlay() {
 
 // function for rock paper scissors game
 function playRound(playerSelection, computerSelection) {
-    let pSelection = playerSelection.toLowerCase();
+    let pSelect = prompt("Choose: Rock, Paper, or Scissors")
+    let pSelection = pSelect.toLowerCase();
     if (pSelection === 'rock' && computerSelection === 'paper') {
         return "You lose! Paper beats rock.";
     } else if (pSelection === 'paper' && computerSelection === 'scissors') {
@@ -20,9 +21,18 @@ function playRound(playerSelection, computerSelection) {
         return "You win! Paper beats rock!";
     } else if (pSelection === 'scissors' && computerSelection === 'paper') {
         return "You win! Scissors beats paper";
-    } else {
+    } else if (pSelection === 'rock' && computerSelection === 'rock') {
         return "It's a tie! Play again.";
+    } else if (pSelection === 'paper' && computerSelection === 'paper') {
+        return "It's a tie! Play again.";
+    } else if (pSelection === 'scissors' && computerSelection === 'scissors') {
+        return "It's a tie! Play again.";
+    } else {
+        return "Not a valid input, please try again."
     }
 }
 
+// function to play a 5 round rock paper scissors game
+function game() {
 
+}
