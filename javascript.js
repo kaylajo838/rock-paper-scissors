@@ -30,10 +30,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// const playerSelection = "rock";
-// const computerSelection = computerPlay();
-// console.log(playRound(playerSelection, computerSelection));
-
 // function to play a 5 round rock paper scissors game
 function game() {
     let result = { win: 0, tie: 0, lose: 0 };
