@@ -26,7 +26,7 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === 'scissors' && computerSelection === 'scissors') {
         return "It\'s a tie! Play again.";
     } else {
-        return "Not a valid input, please try again.";
+        alert("Not a valid input, please try again.");
     }
 }
 
@@ -47,8 +47,10 @@ function game() {
             result.lose++;
         } else if (roundResult === "You win! Rock beats scissors!" || roundResult === "You win! Paper beats rock!" || roundResult === "You win! Scissors beats paper") {
             result.win++;
-        } else {
+        } else if (roundResult === "It\'s a tie! Play again.") {
             result.tie++;
+        } else {
+            i--;
         }
     }
 
