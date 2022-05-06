@@ -4,6 +4,9 @@ const btnScissors = document.querySelector('#scissors');
 const result = document.querySelector('#final-result');
 const resultRound = document.querySelector('#round-result');
 const div = document.createElement('div')
+const playerScore = document.querySelector('#player-score');
+const computerScore = document.querySelector('#computer-score');
+const tieScore = document.querySelector('#tie-score');
 
 // Randomly returns rock paper or scissors - computer play
 function computerPlay() {
