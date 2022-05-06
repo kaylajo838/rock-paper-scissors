@@ -23,22 +23,31 @@ function computerPlay() {
 // function for rock paper scissors game
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === 'rock' && computerSelection === 'paper') {
+        computerWin();
         div.textContent = "You lose! Paper beats rock.";
     } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+        computerWin();
         div.textContent = "You lose! Scissors beats paper.";
     } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+        computerWin();
         div.textContent = "You lose! Rock beats scissors.";
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
+        playerWin();
         div.textContent = "You win! Rock beats scissors!";
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+        playerWin();
         div.textContent = "You win! Paper beats rock!";
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+        playerWin();
         div.textContent = "You win! Scissors beats paper!";
     } else if (playerSelection === 'rock' && computerSelection === 'rock') {
+        tieWin();
         div.textContent = "It\'s a tie! Play again.";
     } else if (playerSelection === 'paper' && computerSelection === 'paper') {
+        tieWin();
         div.textContent = "It\'s a tie! Play again.";
     } else if (playerSelection === 'scissors' && computerSelection === 'scissors') {
+        tieWin();
         div.textContent = "It\'s a tie! Play again.";
     } else {
         alert("Not a valid input, please try again.");
@@ -87,7 +96,31 @@ btnScissors.addEventListener('click', function () {
     }
 })
 
+// functions to change text content after wins
+function playerWin() {
+    ++playerScore;
+    playerAmount.textContent = `Your score is: ${playerScore}`;
+}
 
+function computerWin() {
+    ++computerScore;
+    computerAmount.textContent = `The computer's score is: ${computerScore}`;
+}
+
+function tieWin() {
+    ++tieScore;
+    tieAmount.textContent = `Tie Rounds: ${tieScore}`;
+}
+
+if (playerScore === 5) {
+    const para = document.createElement('p');
+    para.textContent = "Congratulations! You win!";
+    result.appendChild(para);
+} else if (computerScore === 5) {
+    const para = document.createElement('p');
+    para.textContent = "Sorry! Computer wins, please play again!";
+    result.appendChild(para);
+}
 
 // function to play a 5 round rock paper scissors game
 // function game() {
