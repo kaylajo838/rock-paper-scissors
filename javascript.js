@@ -7,6 +7,7 @@ const div = document.createElement('div')
 const playerAmount = document.querySelector('#player-score');
 const computerAmount = document.querySelector('#computer-score');
 const tieAmount = document.querySelector('#tie-score');
+const reset = document.querySelector('#reset');
 
 // global variable for scores
 let playerScore = 0;
@@ -40,17 +41,22 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
         playerWin();
         div.textContent = "You win! Scissors beats paper!";
-    } else if (playerSelection === 'rock' && computerSelection === 'rock') {
-        tieWin();
-        div.textContent = "It\'s a tie! Play again.";
-    } else if (playerSelection === 'paper' && computerSelection === 'paper') {
-        tieWin();
-        div.textContent = "It\'s a tie! Play again.";
-    } else if (playerSelection === 'scissors' && computerSelection === 'scissors') {
-        tieWin();
-        div.textContent = "It\'s a tie! Play again.";
     } else {
-        alert("Not a valid input, please try again.");
+        tieWin();
+        div.textContent = "It\'s a tie! Play again.";
+    }
+
+    // When score reaches 5 syntax
+    if (playerScore === 5) {
+        const newPara = document.createElement('p');
+        const text = document.createTextNode('Congratulations! You win!')
+        newPara.appendChild(text);
+        result.appendChild(newPara);
+    } else if (computerScore === 5) {
+        const newPara = document.createElement('p');
+        const text = document.createTextNode('Sorry, you lose. Play Again!');
+        newPara.appendChild(text);
+        result.appendChild(newPara);
     }
 }
 
@@ -58,7 +64,7 @@ function playRound(playerSelection, computerSelection) {
 btnRock.addEventListener('click', function () {
     let playerSelection = 'rock';
     let computerSelection = computerPlay();
-    let roundResult = playRound(playerSelection, computerSelection);
+    playRound(playerSelection, computerSelection);
     if (computerSelection === 'paper') {
         resultRound.appendChild(div);
     } else if (computerSelection === 'scissors') {
@@ -72,7 +78,7 @@ btnRock.addEventListener('click', function () {
 btnPaper.addEventListener('click', function () {
     let playerSelection = 'paper'
     let computerSelection = computerPlay();
-    let roundResult = playRound(playerSelection, computerSelection);
+    playRound(playerSelection, computerSelection);
     if (computerSelection === 'scissors') {
         resultRound.appendChild(div);
     } else if (computerSelection === 'rock') {
@@ -86,7 +92,7 @@ btnPaper.addEventListener('click', function () {
 btnScissors.addEventListener('click', function () {
     let playerSelection = 'scissors';
     let computerSelection = computerPlay();
-    let roundResult = playRound(playerSelection, computerSelection);
+    playRound(playerSelection, computerSelection);
     if (computerSelection === 'rock') {
         resultRound.appendChild(div);
     } else if (computerSelection === 'paper') {
@@ -112,15 +118,13 @@ function tieWin() {
     tieAmount.textContent = `Tie Rounds: ${tieScore}`;
 }
 
-if (playerScore === 5) {
-    const para = document.createElement('p');
-    para.textContent = "Congratulations! You win!";
-    result.appendChild(para);
-} else if (computerScore === 5) {
-    const para = document.createElement('p');
-    para.textContent = "Sorry! Computer wins, please play again!";
-    result.appendChild(para);
-}
+// game reset
+reset.addEventListener('click', function () {
+    playerAmount.textContent = "Your score is: 0";
+    computerAmount.textContent = "The computer's score is: 0";
+    tieAmount.textContent = "Tie Rounds: 0";
+    resultRound.removeChild(div);
+})
 
 // function to play a 5 round rock paper scissors game
 // function game() {
