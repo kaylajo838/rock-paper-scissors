@@ -8,6 +8,7 @@ const playerAmount = document.querySelector('#player-score');
 const computerAmount = document.querySelector('#computer-score');
 const tieAmount = document.querySelector('#tie-score');
 const reset = document.querySelector('#reset');
+const newPara = document.createElement('p');
 
 // global variable for scores
 let playerScore = 0;
@@ -48,12 +49,10 @@ function playRound(playerSelection, computerSelection) {
 
     // When score reaches 5 syntax
     if (playerScore === 5) {
-        const newPara = document.createElement('p');
         const text = document.createTextNode('Congratulations! You win!')
         newPara.appendChild(text);
         result.appendChild(newPara);
     } else if (computerScore === 5) {
-        const newPara = document.createElement('p');
         const text = document.createTextNode('Sorry, you lose. Play Again!');
         newPara.appendChild(text);
         result.appendChild(newPara);
@@ -124,6 +123,7 @@ reset.addEventListener('click', function () {
     computerAmount.textContent = "The computer's score is: 0";
     tieAmount.textContent = "Tie Rounds: 0";
     resultRound.removeChild(div);
+    result.removeChild(newPara);
 })
 
 // function to play a 5 round rock paper scissors game
