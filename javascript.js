@@ -52,10 +52,16 @@ function playRound(playerSelection, computerSelection) {
         const text = document.createTextNode('Congratulations! You win!')
         newPara.appendChild(text);
         result.appendChild(newPara);
+        btnRock.disabled = true;
+        btnPaper.disabled = true;
+        btnScissors.disabled = true;
     } else if (computerScore === 5) {
         const text = document.createTextNode('Sorry, you lose. Play Again!');
         newPara.appendChild(text);
         result.appendChild(newPara);
+        btnRock.disabled = true;
+        btnPaper.disabled = true;
+        btnScissors.disabled = true;
     }
 }
 
@@ -127,6 +133,9 @@ reset.addEventListener('click', function () {
     tieAmount.textContent = "Tie Rounds: 0";
     resultRound.removeChild(div);
     result.removeChild(newPara);
+    btnRock.disabled = false;
+    btnPaper.disabled = false;
+    btnScissors.disabled = false;
 })
 
 
