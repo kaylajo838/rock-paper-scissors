@@ -126,30 +126,5 @@ reset.addEventListener('click', function () {
     result.removeChild(newPara);
 })
 
-// function to play a 5 round rock paper scissors game
-// function game() {
-//     let result = { win: 0, tie: 0, lose: 0 };
-//     for (let i = 0; i < 5; i++) {
-//         let playerSelection = prompt("Choose: Rock, Paper, or Scissors").toLowerCase();
-//         let computerSelection = computerPlay();
 
-//         let roundResult = playRound(playerSelection, computerSelection);
-//         console.log(roundResult);
-//         if (roundResult === "You lose! Paper beats rock." || roundResult === "You lose! Scissors beats paper." || roundResult === "You lose! Rock beats Scissors.") {
-//             result.lose++;
-//         } else if (roundResult === "You win! Rock beats scissors!" || roundResult === "You win! Paper beats rock!" || roundResult === "You win! Scissors beats paper") {
-//             result.win++;
-//         } else if (roundResult === "It\'s a tie! Play again.") {
-//             result.tie++;
-//         } else {
-//             i--;
-//         }
-//     }
-
-//     console.log("Wins: " + result.win);
-//     console.log("Losses: " + result.lose);
-//     console.log("Ties: " + result.tie);
-// }
-
-// game();
 
