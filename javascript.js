@@ -119,6 +119,9 @@ function tieWin() {
 
 // game reset
 reset.addEventListener('click', function () {
+    playerScore = 0;
+    computerScore = 0;
+    tieScore = 0;
     playerAmount.textContent = "Your score is: 0";
     computerAmount.textContent = "The computer's score is: 0";
     tieAmount.textContent = "Tie Rounds: 0";
