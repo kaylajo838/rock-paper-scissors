@@ -2,7 +2,7 @@
 A simple rock paper scissors game made mostyl with JavaScript.
 
 ## Live Demo
-Preview: 
+Preview: https://kaylajo838.github.io/rock-paper-scissors/
 
 ## Skills Learned
 - Using if statements to create outcomes in game
